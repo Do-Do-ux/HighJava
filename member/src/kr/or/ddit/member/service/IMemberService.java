@@ -10,4 +10,6 @@ public interface IMemberService {
 	
 	public MemberVO memberdetail(String memId);
 
+	public int idcheck(String id);
+
 }

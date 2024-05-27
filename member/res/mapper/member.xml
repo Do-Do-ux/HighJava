@@ -24,6 +24,13 @@
 		SELECT * FROM MYMEMBER
 		WHERE MEM_ID = #{memId}
 	</select>
+	
+	<select id="idcheck" resultType="int" parameterType="String">
+		SELECT * FROM MYMEMBER
+		WHERE MEM_ID = #{memId}
+	</select>
+	
+	
 
 
 

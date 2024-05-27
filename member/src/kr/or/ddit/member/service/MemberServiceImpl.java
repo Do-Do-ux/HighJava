@@ -29,4 +29,9 @@ public class MemberServiceImpl implements IMemberService {
 		return memDao.memberdetail(memId);
 	}
 
+	@Override
+	public int idcheck(String id) {
+		return memDao.idcheck(id);
+	}
+
 }

@@ -28,7 +28,7 @@ td {
 <body>
 	<table>
 		<tr>
-		<td align="right"><input type="button" value="추가하기"></td>
+		<td align="right"><input type="button" value="추가하기" onclick="location.href='/memAdd.do'"></td>
 		</tr>
 		<tr style="font-weight: bold;">
 		<td>ID</td>

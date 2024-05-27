@@ -6,6 +6,7 @@ import java.util.List;
 import org.apache.ibatis.exceptions.PersistenceException;
 import org.apache.ibatis.session.SqlSession;
 
+import kr.or.ddit.member.service.MemberServiceImpl;
 import kr.or.ddit.member.vo.MemberVO;
 import kr.or.ddit.util.MyBatisUtil;
 
@@ -46,6 +47,24 @@ public class MemberDaoImpl implements IMemberDao {
 
 		try {
 			member = session.selectOne("member.memberdetail", memId);
+
+		} catch (PersistenceException e) {
+			e.printStackTrace();
+		} finally {
+			session.close();
+		}
+
+		return member;
+	}
+
+	@Override
+	public int idcheck(String id) {
+		SqlSession session = MyBatisUtil.getSqlSession(true);
+
+		int member = 0;
+
+		try {
+			member = session.selectOne("member.idcheck", id);
 
 		} catch (PersistenceException e) {
 			e.printStackTrace();

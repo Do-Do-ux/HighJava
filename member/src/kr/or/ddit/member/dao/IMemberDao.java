@@ -2,6 +2,7 @@ package kr.or.ddit.member.dao;
 
 import java.util.List;
 
+import kr.or.ddit.member.service.MemberServiceImpl;
 import kr.or.ddit.member.vo.MemberVO;
 
 public interface IMemberDao {
@@ -10,5 +11,7 @@ public interface IMemberDao {
 	public List<MemberVO> memList();
 
 	public MemberVO memberdetail(String memId);
+
+	public int idcheck(String id);
 
 }
