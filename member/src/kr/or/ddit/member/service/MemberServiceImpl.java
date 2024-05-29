@@ -34,4 +34,6 @@ public class MemberServiceImpl implements IMemberService {
 		return memDao.idcheck(id);
 	}
 
+
+
 }

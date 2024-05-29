@@ -36,8 +36,6 @@
 	<td><input type="button" value="수정" onclick="location.href='/modify.do'"><input type="button" value="삭제" onclick="location.href='/delete.do'"><input type="button" value="회원목록" onclick="location.href='/list.do'"></td>
 	</tr>
 	
-	
-	
 	</table>
 	
 </body>

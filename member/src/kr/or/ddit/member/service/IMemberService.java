@@ -12,4 +12,5 @@ public interface IMemberService {
 
 	public int idcheck(String id);
 
+
 }

@@ -65,6 +65,9 @@ public class MemberDaoImpl implements IMemberDao {
 
 		try {
 			member = session.selectOne("member.idcheck", id);
+			if(member == 0) {
+				member = 0;
+			}
 
 		} catch (PersistenceException e) {
 			e.printStackTrace();

@@ -11,13 +11,20 @@ table, tr, td {
 border: 2px solid black;
 
 }
+
+#msg {
+display: none;
+
+}
 </style>
 </head>
 <body>
 <table>
 	<tr>
 	<td>회원ID</td>
-	<td><input type="button" value="중복확인"></td>
+	<td><input type="text" id="idchk"><input type="button" value="중복확인" id="idchkbutton">
+		<br><h4 id="msg"></h4>
+	</td>
 	</tr>
 	<tr>
 	<td>비빌번호</td>
@@ -47,5 +54,33 @@ border: 2px solid black;
 	<td><input type="button" value="저장"><input type="button" value="취소"><input type="button" value="회원목록"></td>
 	</tr>
 </table>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script>
+	$('#idchkbutton').on("click", function() {
+		let idchk = "idchk=" + $('#idchk').val();
+		
+		$.ajax({
+			url:'/idchk.do'
+			, method : 'GET'
+			, data: idchk
+			, dataType :"text"
+			, success : function(jsonData) {
+			
+				
+					
+					
+				
+				
+				
+				
+				
+				}
+			})
+		})
+
+			
+
+</script>
 </body>
 </html>
