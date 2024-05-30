@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="member">
+
+	<resultMap type="kr.or.ddit.member.vo.MemberVO" id="memMap">
+		<id column="mem_id" property="mem_id" /> <!-- memId -> key 값 -->
+		<result column="mem_pass" property="mem_pass" />
+		<result column="mem_name" property="mem_name" />
+		<result column="mem_tel" property="mem_tel" />
+		<result column="mem_addr" property="mem_addr" />
+		<result column="mem_photo" property="mem_photo" />
+	</resultMap>
+
+	<!-- 회원계정 전체정보 -->
+	<select id="MemberList" resultMap="memMap">
+		SELECT * FROM MYMEMBER
+		ORDER BY mem_id ASC
+	</select>
+	
+	<select id="memberdetail" resultMap="memMap" parameterType="String">
+		SELECT * FROM MYMEMBER
+		WHERE MEM_ID = #{memId}
+	</select>
+	
+	<select id="idcheck" resultType="memMap"  parameterType="String">
+		SELECT * FROM MYMEMBER
+		WHERE MEM_ID = #{memId}
+	</select>
+	
+	
+
+
+
+</mapper>
