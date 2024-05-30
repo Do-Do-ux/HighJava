@@ -15,7 +15,7 @@ public class MemberServiceImpl implements IMemberService {
 	}
 
 	public static IMemberService getInstance() {
-//		if(mbService == null) new MemberDaoImpl();
+		if(mbService == null) new MemberDaoImpl();
 		return mbService;
 	}
 
@@ -33,6 +33,24 @@ public class MemberServiceImpl implements IMemberService {
 	public int idcheck(String id) {
 		return memDao.idcheck(id);
 	}
+
+	@Override
+	public int memberAdd(MemberVO mv) {
+		return memDao.memberAdd(mv);
+	}
+
+	@Override
+	public int modifyMember(MemberVO member) {
+		return memDao.modifyMember(member);
+		
+	}
+
+	@Override
+	public int memberDelete(String memId) {
+		return memDao.memberDelete(memId);
+	}
+
+
 
 
 

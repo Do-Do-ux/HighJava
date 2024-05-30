@@ -65,10 +65,7 @@ public class MemberDaoImpl implements IMemberDao {
 
 		try {
 			member = session.selectOne("member.idcheck", id);
-			if(member == 0) {
-				member = 0;
-			}
-
+		 
 		} catch (PersistenceException e) {
 			e.printStackTrace();
 		} finally {
@@ -77,5 +74,68 @@ public class MemberDaoImpl implements IMemberDao {
 
 		return member;
 	}
+
+	@Override
+	public int memberAdd(MemberVO mv) {
+		SqlSession session = MyBatisUtil.getSqlSession(true);
+
+		int member = 0;
+
+		try {
+			member = session.insert("member.addMember", mv);
+		 
+		} catch (PersistenceException e) {
+			e.printStackTrace();
+		} finally {
+			session.close();
+		}
+
+		return member;
+	}
+
+	@Override
+	public int modifyMember(MemberVO member) {
+		SqlSession session = MyBatisUtil.getSqlSession(true);
+
+		int num = 0;
+
+		try {
+			 num = session.update("member.modifyMember", member);
+		 
+		} catch (PersistenceException e) {
+			e.printStackTrace();
+		} finally {
+			session.close();
+		}
+		return num;
+
+		
+	}
+
+	@Override
+	public int memberDelete(String memId) {
+		SqlSession session = MyBatisUtil.getSqlSession();
+		
+		int cnt = 0;
+		
+		try {
+			cnt = session.delete("member.memberDelete", memId);
+			
+			if(cnt > 0) {
+				session.commit();
+			}
+		} catch (PersistenceException e) {
+			e.printStackTrace();
+			session.rollback();
+		} finally {
+			session.close();
+		}
+		
+		return cnt;
+	}
+
+	
+	
+
 
 }

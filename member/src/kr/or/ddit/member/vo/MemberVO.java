@@ -38,7 +38,7 @@ public class MemberVO {
 		this.mem_addr = mem_addr;
 	}
 	public String getMem_photo() {
-		return mem_photo;
+		return this.mem_photo != null ? this.mem_photo.substring(this.mem_photo.lastIndexOf("\\") + 1) : null;
 	}
 	public void setMem_photo(String mem_photo) {
 		this.mem_photo = mem_photo;

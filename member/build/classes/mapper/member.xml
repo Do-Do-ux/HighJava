@@ -25,13 +25,27 @@
 		WHERE MEM_ID = #{memId}
 	</select>
 	
-	<select id="idcheck" resultType="memMap"  parameterType="String">
-		SELECT * FROM MYMEMBER
-		WHERE MEM_ID = #{memId}
+	<select id="idcheck" resultType="int" parameterType="String">
+	    SELECT COUNT(*) FROM MYMEMBER
+	    WHERE MEM_ID = #{memId}
 	</select>
 	
+	<insert id="addMember" parameterType="kr.or.ddit.member.vo.MemberVO">
+	    INSERT INTO MYMEMBER (MEM_ID, MEM_PASS, MEM_NAME, MEM_TEL, MEM_ADDR, MEM_PHOTO)
+	    VALUES (#{mem_id}, #{mem_pass}, #{mem_name}, #{mem_tel}, #{mem_addr}, #{mem_photo})
+	</insert>
 	
+	<update id="modifyMember" parameterType="kr.or.ddit.member.vo.MemberVO">
+	    UPDATE MYMEMBER 
+		SET MEM_PASS = #{mem_pass}, MEM_NAME = #{mem_name}, MEM_TEL = #{mem_tel}, MEM_ADDR = #{mem_addr}, MEM_PHOTO = #{mem_photo}
+		WHERE MEM_ID = #{mem_id}
 
+	</update>
+	
+	<delete id="memberDelete" parameterType="memVO">
+		DELETE MYMEMBER
+		WHERE MEM_ID = #{mem_id}
+	</delete>
 
 
 </mapper>
